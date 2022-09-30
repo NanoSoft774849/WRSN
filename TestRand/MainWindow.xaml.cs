@@ -1,8 +1,9 @@
 ﻿/// don't remove this. this only for NPDC.
-#define NPDC
-#define use_sectors
-#define NJNP
-#define mTs
+//#define NPDC
+//#define use_sectors
+// #define use_layers
+//#define NJNP
+//#define mTs
 #define Nayab
 
 using System;
@@ -24,15 +25,24 @@ using System.Windows.Media.Media3D;
 //using NodeInfo;
 using ns.graph;
 using ns.graph.user_gui;
-using NPDC;
-//using NJNP;cxcx
-//using mTs;
-//using Nayab;
+
 using Newtonsoft.Json;
 using System.IO;
 using Path = System.Windows.Shapes.Path;
 using Microsoft.Win32;
 using System.Timers;
+
+#if NPDC
+using NPDC;
+#elif mTs
+using mTs;
+#elif NJNP
+using NJNP;
+#elif Nayab
+using Nayab;
+#else
+using ns.wrsn;
+#endif
 
 namespace TestRand
 {
@@ -66,7 +76,9 @@ namespace TestRand
         private bool BoolUsePen = false;
         Dictionary<string, ns_node> NodesList = new Dictionary<string, ns_node>();
         Dictionary<string, mobile_charger> MobileChargers = new Dictionary<string, mobile_charger>();
+#if use_sectors
         List<ns_sector> net_sectors = new List<ns_sector>();
+#endif 
         private string app_log_file = "app_log.txt";
         private string latex_out_file = "latex.tex";
        // private double connect_max_dist = 500;
@@ -176,13 +188,15 @@ namespace TestRand
             this.ns_nodes_charge_stats.Write(table);
           
 
-            // config_optimization_constant_for_MCS();
+             config_optimization_constant_for_MCS();
             
             OutputTcpPortFilters();// for wireshark filters.
            // order_nodes();
           
             this.screen.Text = "";
+#if use_sectors
             assign_sectors();
+#endif
             this.nano_latex.endAll();// end all close tags.
            
             
@@ -289,9 +303,14 @@ namespace TestRand
                 starty += (r.NextDouble() * i* 4);
             }
         }
-/// <summary>
-/// for NPDC only
-/// </summary>
+        /// <summary>
+        /// for NPDC only
+        /// </summary>
+        /// 
+        private void AppendToLatexFile(string latex)
+        {
+            this.nano_latex.AppendLatex(latex);
+        }
 #if NPDC
 
         private enum pathType
@@ -576,10 +595,7 @@ namespace TestRand
             // Draw(nodes);
             return nodes;
         }
-        private void AppendToLatexFile(string latex)
-        {
-            this.nano_latex.AppendLatex(latex);
-        }
+        
         /////
         /// <summary>
         /// This is if you want to construct charging path based on importance of nodes.
@@ -1097,14 +1113,6 @@ namespace TestRand
             File.WriteAllText(fn, s);
             /// 
             s = "-------------------------\n";
-            foreach( var mc in this.MobileChargers)
-            {
-                var mcv = mc.Value;
-                foreach( var layer in mcv.AssignedLayers)
-                {
-                    s += string.Format("{0}\t{1}\t{2}\t{3}\n", mcv.tag, layer.Key, layer.Value.Importance, layer.Value.NodesInLayer.Count);
-                }
-            }
             File.AppendAllText(fn, s);
         }
         private void calc_nodes_importance()
@@ -1145,34 +1153,8 @@ namespace TestRand
                 printf("Exception in assign_threshold:{0}", ex.Message);
             }
         }
-        private void assign_threshold()
-        {
-            try
-            {
-                AssignThresholdsFx();
-               // calc_nodes_importance();
-                /*this.screen.Text = "";
-                string bs_id = AppConfig.getConfigValue("base_station_id", "BS_1");
-                if (!this.NodesList.ContainsKey(bs_id))
-                {
-                    printf("NO BS_1");
-                    return;
-                }
 
-                ns_node bs = this.NodesList[bs_id];
-                net_packet assign_packet = new net_packet(bs_id, "", packetType.assign_threshold);
-                assign_packet.child_index = 0;
-                assign_packet.hop_count = 0;
-                assign_packet.SetNumberofNodes(this.sensor_count);
-                bs.SendEngThresholdPacketbyFlooding(assign_packet);
-                printf("Assign Threshold DONE>---");*/
-
-            }catch(Exception ex)
-            {
-                printf("Exception in assign_threshold:{0}", ex.Message);
-            }
-           
-        }
+        
         private double GetConfigValue(string key , double def)
         {
             string value = AppConfig.getConfigValue(key);
@@ -1182,10 +1164,14 @@ namespace TestRand
         }
         public void config_optimization_constant_for_MCS()
         {
-            double optim_const = get_average_inter_arrival_time();
+            
             double alpha = AppConfig.getAlpha();
-           // base_station bs = GetBindingExpression
-            foreach(var mc in this.MobileChargers)
+            double N = AppConfig.getNumberOfNodes();
+            double K = AppConfig.getNumberofChargers();
+
+            double optim_const = (N / K);
+            // base_station bs = GetBindingExpression
+            foreach (var mc in this.MobileChargers)
             {
                // mc.Value.
                 mc.Value.optimization_constant = optim_const;// / alpha;
@@ -1217,6 +1203,37 @@ namespace TestRand
         /// <summary>
         /// this function will be called after Assigning Importance.
         /// </summary>
+        /// 
+#if NPDC
+
+            private void assign_threshold()
+        {
+            try
+            {
+                AssignThresholdsFx();
+               // calc_nodes_importance();
+                /*this.screen.Text = "";
+                string bs_id = AppConfig.getConfigValue("base_station_id", "BS_1");
+                if (!this.NodesList.ContainsKey(bs_id))
+                {
+                    printf("NO BS_1");
+                    return;
+                }
+
+                ns_node bs = this.NodesList[bs_id];
+                net_packet assign_packet = new net_packet(bs_id, "", packetType.assign_threshold);
+                assign_packet.child_index = 0;
+                assign_packet.hop_count = 0;
+                assign_packet.SetNumberofNodes(this.sensor_count);
+                bs.SendEngThresholdPacketbyFlooding(assign_packet);
+                printf("Assign Threshold DONE>---");*/
+
+            }catch(Exception ex)
+            {
+                printf("Exception in assign_threshold:{0}", ex.Message);
+            }
+           
+        }
         private void AssignThresholdsFx()
         {
             int i = 0;
@@ -1246,6 +1263,7 @@ namespace TestRand
 
             }
         }
+
         private void AssignThresholdLayerdBased()
         {
             var dict = GroupNodesByLayer();
@@ -1369,6 +1387,7 @@ namespace TestRand
                 k += lc;
             }
         }
+#endif
         public void ConfigNodes()
         {
             //double[] thrs = guassian_window(this.NodesList.Count, 0.444, 0.5);
@@ -1415,15 +1434,16 @@ namespace TestRand
                     node.Value.PowerConfig.ChargeRate = cr;
                    
                     node.Value.PowerConfig.BatteryCapacity = mc_max_eng;
+                    (node.Value as mobile_charger).mcv_speed = mcv_speed;
                     node.Value.PowerConfig.initial_energy = mc_max_eng;
                     node.Value.PowerConfig.EnableSleepMode(sleep_mode_enable);
                     node.Value.PowerConfig.Sleep_mode_En = sleep_mode_eng;
                     node.Value.SetNetTimerTimeRange(int_start, int_end);
-                    #if NPDC
+#if NPDC
                    
-                    (node.Value as mobile_charger).mcv_speed = mcv_speed;
+                    
                     bs.AddMCV((node.Value as mobile_charger));
-                    #endif
+#endif
                   //  (node.Value as mobile_charger).SetBS((base_station)this.getBS());
                 }
                
@@ -1437,14 +1457,14 @@ namespace TestRand
             }
             /// Assign MCVs Layers 
             /// 
-            #if NPDC && use_layers
+#if NPDC && use_layers
            
             AssignThresholdLayerdBased();
-            #endif
+#endif
          /*   #if use_sectors 
              assign_sectors();
-            #endif*/
-        }
+#endif*/
+    }
         
         private void threshold_based_color(ns_node node, string fn)
         {
@@ -1707,7 +1727,7 @@ namespace TestRand
           //  reqTimes =
             File.WriteAllText(this.first_charge_request_fn, str);
         }
-       
+#if NPDC
         private void ExportTasksReports()
         {
             base_station bs = this.getBS() as base_station;
@@ -1742,6 +1762,7 @@ namespace TestRand
             }
 
         }
+#endif
         private void ExportReports()
         {
             int count = 0;
@@ -1753,7 +1774,9 @@ namespace TestRand
             double[] pow = new double[node_count+5];
             double charge_requests = 0.0;
             int k = 0;
+#if NPDC
             ExportTasksReports();
+#endif
             //string sep = ",";
             foreach(var kvp in this.NodesList)
             {
@@ -2309,7 +2332,7 @@ namespace TestRand
             }
             return win;
         }
-
+#if NPDC
         private bool  getMCVByLayerSetLoc(int layer, List<mobile_charger> mcvs, ns_point new_loc)
         {
             
@@ -2333,6 +2356,7 @@ namespace TestRand
             }
             return false;
         }
+#endif
         private class simple_node
         {
             public ns_point loc;
@@ -2459,16 +2483,7 @@ namespace TestRand
                 {
                     return n.loc.edistance(bs.loc);
                 }).Reverse();
-#if use_layers
-            foreach( var node in sorted_nodes)
-            {
-                if (node.type != Node_type.BS)
-                {
-                    latex += create_hexagon(node.loc, node.layer, ra, node.type);
-                }
-            }
-#endif
-#if use_sectors
+
             foreach (var node in sorted_nodes)
             {
                 if (node.type == Node_type.Sensor)
@@ -2478,7 +2493,7 @@ namespace TestRand
             }
 
 
-#endif
+//#endif
             
             return latex;
         }
@@ -4008,13 +4023,14 @@ namespace TestRand
         {
             if(this.NodesList.Count==0) return;
             string a_type = algo_type.SelectedItem as string;
-            
+
             //if(!is_sim_start)
             //{
             //    MessageBox.Show("You should first start Simulation !");
             //    return;
             //}
             // assign_importance
+#if NPDC
             if (a_type == "assign_importance")
             {
                 calc_nodes_importance();
@@ -4035,6 +4051,7 @@ namespace TestRand
                 assign_threshold();
                 return;
             }
+#endif
             string src_id = src_node_box.SelectedItem as string;
             string sink_id = sink_node_box.SelectedItem as string;
             
