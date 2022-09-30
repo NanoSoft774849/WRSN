@@ -1,6 +1,10 @@
 ﻿/// don't remove this. this only for NPDC.
 #define NPDC
 #define use_sectors
+#define NJNP
+#define mTs
+#define Nayab
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
