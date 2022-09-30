@@ -1,0 +1,45 @@
+﻿<Window x:Class="TestRand.net_stats_wind"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Network Statistics." WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <ToolBarTray Grid.Column="0" Grid.Row="0" Background="#22111412" Grid.ColumnSpan="2" >
+            <ToolBar Band="1" BandIndex="1" Background="#111512">
+                <Button ToolTip="To Latex[packets]" Click="export_packets_as_latex">
+                    <Image Source="icons\export.png" />
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        <Grid Grid.Row="1" Background="#abc">
+            <ScrollViewer >
+                <ContentControl Background="#112233">
+                    <ContentControl.Content>
+                        <Grid>
+                            <DataGrid Name="mdatagrid" ItemsSource="{Binding Nodes}" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding ID}" Header="ID" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                    <DataGridTextColumn Binding="{Binding Location}" Header="Location" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                    <DataGridTextColumn Binding="{Binding Tx_Packets}" Header="TxPackets" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                    <DataGridTextColumn Binding="{Binding Rx_Packets}" Header="RxPackets" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                    <DataGridTextColumn Binding="{Binding BatteryCapacity}" Header="BatteryCap" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                    <DataGridTextColumn Binding="{Binding LifeTime}" Header="LifeTime" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                    <DataGridTextColumn Binding="{Binding NodeType}" Header="Type" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                    <DataGridTextColumn Binding="{Binding IsDead}" Header="Below_Th" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                    <DataGridTextColumn Binding="{Binding Charge_Requests}" Header="ChReq" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                    <DataGridTextColumn Binding="{Binding Threshold}" Header="Threshold" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                    <DataGridTextColumn Binding="{Binding port}" Header="Port" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                </DataGrid.Columns>
+                            </DataGrid>  
+                        </Grid>
+                    </ContentControl.Content>
+                </ContentControl>
+            </ScrollViewer>
+        </Grid>
+        
+    </Grid>
+    
+</Window>

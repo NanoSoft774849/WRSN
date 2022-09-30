@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="TestRand.graph_indicator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             MouseDown="UserControl_MouseDown"
+             MouseMove="UserControl_MouseMove"
+             MouseLeave="UserControl_MouseLeave"
+             MouseUp="UserControl_MouseUp"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="80*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+
+        </Grid.RowDefinitions>   
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition Width="80*"></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Border Width="1" Background="Red"></Border>
+        <StackPanel  Grid.Column="0" Grid.RowSpan="3" Background="Gray" Orientation="Vertical" Name="yaxis"></StackPanel>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Background="Gray" Name="xaxis" Orientation="Horizontal"></StackPanel>
+        <Canvas Grid.Column="1" Grid.Row="1" Background="black" Name="graph"></Canvas>
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Background="Gray"></StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Background="Gray"></StackPanel>
+    </Grid>
+</UserControl>

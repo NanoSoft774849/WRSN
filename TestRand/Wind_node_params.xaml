@@ -1,0 +1,35 @@
+﻿<Window x:Class="TestRand.Wind_node_params"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Wind_node_params" Height="400" Width="400">
+    <Grid Background=" #2111">
+        <Border Name="_border" BorderBrush="#EC448D01" BorderThickness="1.1" Margin="5">
+            <ScrollViewer>
+    <StackPanel Name="stp" >
+            <Label > Node Name:</Label>
+            <TextBox Name="node_name"></TextBox>
+        <Label >Radius :</Label>
+        <TextBox Name="radius"></TextBox>
+        <Label >Comm Range :</Label>
+                <TextBox Name="node_cr"></TextBox>
+                <Label>Energy</Label>
+                <TextBox Name="energy" ></TextBox>
+                <Label > Attribute Name:</Label>
+                <TextBox Name="_attr_name"></TextBox>
+                <Label >Attribute Value:</Label>
+                <TextBox Name="__attr__value"></TextBox>
+                <Label BorderBrush="#EC448D01" Foreground="#EC448D01"> Color:</Label>
+            <TextBox Name="_color"></TextBox>
+                <Button x:Name="Save" Click="Save_Click" Content="Save" Margin="10" Foreground="#EC448D01" FontSize="15"/>
+            
+                <Border BorderBrush="#123" BorderThickness="1.5">
+                    <StackPanel Orientation="Vertical" Name="attrs" Margin="4" ></StackPanel>
+
+                </Border>
+               
+           
+    </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>

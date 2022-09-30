@@ -1,0 +1,8 @@
+﻿<Window x:Class="TestRand.Wind_net_Stat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Net Statistics">
+    <Grid>
+        <Canvas Name="figures"></Canvas>
+    </Grid>
+</Window>

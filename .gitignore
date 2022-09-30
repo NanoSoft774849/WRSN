@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ServerApp/v15/Server/sqlite3
+/.vs/ServerApp/v15
+/Nayab/obj/Debug
+/NJNP/bin/Debug
+/NJNP/obj/Debug

@@ -1,0 +1,4 @@
+F:\Aisha\Controller\NS.WRSNs.dll
+F:\Aisha\Controller\NS.WRSNs.pdb
+F:\Aisha\ServerApp\NS.WRSNs\obj\Debug\NS.WRSNs.dll
+F:\Aisha\ServerApp\NS.WRSNs\obj\Debug\NS.WRSNs.pdb

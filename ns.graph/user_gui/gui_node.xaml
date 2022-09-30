@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="ns.graph.user_gui.gui_node"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100"
+             MouseDown="UserControl_MouseDown"
+             MouseUp="UserControl_MouseUp"
+             MouseMove="UserControl_MouseMove"
+             MouseLeave="UserControl_MouseLeave"
+             >
+    <Grid Name="node_grid">
+        <StackPanel  Orientation="Vertical">
+        <Label Name="node_name" Margin="0,-20,0,0"  Background="#112331">n0</Label>
+        <Path Name="node" Data="M 10 0.88004999999998 A 10 10 0 1 1 01.00399999933334 0.88004800000014 Z "  Fill="Blue"></Path>
+        <Path Name="node_CR" Data="M 1 50.88004999999998 A 50 50 0 1 1 1.00399999933334 50.88004800000014 Z "  Stroke="Green" Visibility="Hidden"></Path>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="TestRand.Wind_Node_Config"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Wind_Node_Config" Height="300" Width="300">
+    <Grid Background="#2111">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Button Name="SaveForm" Background="#666" Click="SaveForm_Click">Save</Button>
+        </StackPanel>
+        <Grid Name="fx_content" Grid.Row="1"></Grid>
+    </Grid>
+</Window>

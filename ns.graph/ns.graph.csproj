@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3BB25AF9-D67F-43FC-B847-DE4823BAE804}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ns.graph</RootNamespace>
+    <AssemblyName>ns.graph</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Controller\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Controller\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="ServerSide, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Controller\ServerSide.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataLogger.cs" />
+    <Compile Include="data_parti.cs" />
+    <Compile Include="graph_algorithms.cs" />
+    <Compile Include="gui.cs" />
+    <Compile Include="hexagon.cs" />
+    <Compile Include="latexPgfplots.cs" />
+    <Compile Include="motions.cs" />
+    <Compile Include="net_packet.cs" />
+    <Compile Include="ns_charge_stats.cs" />
+    <Compile Include="ns_communication.cs" />
+    <Compile Include="ns_ds.cs" />
+    <Compile Include="ns_graph_fx.cs" />
+    <Compile Include="ns_iterator.cs" />
+    <Compile Include="ns_attributes.cs" />
+    <Compile Include="ns_latex.cs" />
+    <Compile Include="ns_link.cs" />
+    <Compile Include="ns_math.cs" />
+    <Compile Include="ns_network_graph.cs" />
+    <Compile Include="ns_net_switch.cs" />
+    <Compile Include="ns_node.cs" />
+    <Compile Include="ns_pen.cs" />
+    <Compile Include="ns_point.cs" />
+    <Compile Include="ns_routing.cs" />
+    <Compile Include="ns_ServerNode.cs" />
+    <Compile Include="ns_set.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="signal_processing.cs" />
+    <Compile Include="user_gui\graph_indicator.xaml.cs">
+      <DependentUpon>graph_indicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="user_gui\gui_node.xaml.cs">
+      <DependentUpon>gui_node.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="user_node.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="user_gui\graph_indicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="user_gui\gui_node.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

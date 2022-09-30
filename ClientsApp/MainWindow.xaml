@@ -1,0 +1,123 @@
+﻿<Window x:Class="ClientsApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ClientsApplication" 
+        WindowState="Maximized"
+         Height="1000" Width="1000" MaxWidth="1900" BorderBrush="Black"  WindowStyle="ThreeDBorderWindow" Opacity="1"  WindowStartupLocation="CenterScreen" >
+
+    <Window.Resources>
+        <Style TargetType="Border" x:Key="WindowBorder">
+            <Setter Property="BorderBrush" Value="#777"></Setter>
+            <Setter Property="BorderThickness" Value="3"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="0" Margin="0,0,0,0" VerticalAlignment="Stretch" CornerRadius="5,5,0,0" HorizontalAlignment="Stretch" Background="#777" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox Name="ip_port" Grid.Column="0" ToolTip="Enter ip:port" Text="114.214.193.31:20001"></TextBox>
+                <TextBox Name="number_of_nodes" Grid.Column="1" ToolTip="Number of Nodes">20</TextBox>
+                <TextBox Name="number_of_cars" Grid.Column="2" ToolTip="Number of Cars">5</TextBox>
+                <Button Style="{StaticResource btn-success}" Grid.Column="3" Click="but_generate" > Generate Nodes </Button>
+                <Button Style="{StaticResource btn-danger}" Grid.Column="4" Click="but_closeClients" >Close clients</Button>
+                <Button Style="{StaticResource btn-info}" Grid.Column="5" Click="Button_Start_Sim" >Start Simulation</Button>
+                <Button Style="{StaticResource btn-danger}" Grid.Column="6" Click="Button_Stop_Sim" >Stop Simulation</Button>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="800"></ColumnDefinition>
+                <ColumnDefinition Width="*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <ContentControl  Grid.Column="0" Grid.RowSpan="2" Style="{StaticResource panel-info}" Margin="10" >
+                <StackPanel>
+                    <ContentControl Style="{StaticResource panel-heading-info}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0" Content="Clients List" Foreground="{StaticResource Foreground-Info}" FontSize="20" VerticalAlignment="Center"></Label>
+
+                        </Grid>
+                    </ContentControl>
+                    <ScrollViewer Grid.Row="1" Grid.Column="0" BorderThickness="0.1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <ContentControl Style="{StaticResource panel-body}" Background="#22255877" ScrollViewer.VerticalScrollBarVisibility="Auto"  Name="mcontentx" >
+
+                            <ContentControl.Content>
+
+                                <Grid>
+
+                                    <DataGrid Margin="0" AutoGenerateColumns="False" ItemsSource="{Binding NodesInfox}" Name="mdata_grid" ScrollViewer.CanContentScroll="True"   >
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Binding="{Binding client}" Header="Client" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                            <DataGridTextColumn Binding="{Binding NodeId}" Header="Node ID" ElementStyle="{StaticResource DataGridTextCenter}" Width="*"  />
+                                            <DataGridTextColumn Binding="{Binding ClientType}" Header="Type" ElementStyle="{StaticResource DataGridTextCenter}" Width="80" />
+                                            <DataGridTextColumn Binding="{Binding X}" Header="x" ElementStyle="{StaticResource DataGridTextCenter}" Width="80" />
+                                            <DataGridTextColumn Binding="{Binding Y}" Header="y" ElementStyle="{StaticResource DataGridTextCenter}" Width="80" />
+                                            <DataGridTextColumn Binding="{Binding nodepwr}" Header="Power" ElementStyle="{StaticResource DataGridTextCenter}" Width="140" />
+                                            <DataGridTextColumn Binding="{Binding Status}" Header="Status" ElementStyle="{StaticResource DataGridTextCenter}" Width="90" />
+                                        </DataGrid.Columns>
+                                        <DataGrid.RowDetailsTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <ContentControl Grid.Column="0" Content="Device ID" Style="{StaticResource panel-heading-info}"></ContentControl>
+                                                    <ContentControl Grid.Column="1" Content="{Binding client}" Style="{StaticResource panel-heading-info}"></ContentControl>
+                                                    <ContentControl Grid.Column="2" Content="Device Code" Style="{StaticResource panel-heading-info}"></ContentControl>
+                                                    <ContentControl Grid.Column="3" Content="{Binding NodeId}" Style="{StaticResource panel-heading-info}"></ContentControl>
+                                                    <Button Content="Send Charge Req"   Uid="req_charge"     Click="Button_Click" Grid.Row="1" Grid.Column="0" Style="{StaticResource  btn-success}"/>
+                                                    <Button Content="get Node info"      Uid="info"        Click="Button_Click" Grid.Row="1" Grid.Column="1" Style="{StaticResource  btn-success}"/>
+                                                    <Button Content="Close"  Uid="close"   Click="Button_Click" Grid.Row="1" Grid.Column="2" Style="{StaticResource  btn-success}"/>
+                                                    <Button Content="Ping"     Uid="ping"  Click="Button_Click" Grid.Row="1" Grid.Column="3" Style="{StaticResource  btn-success}"/>
+                                                </Grid>
+                                                <!-- Grid Complete-->
+                                            </DataTemplate>
+                                        </DataGrid.RowDetailsTemplate>
+                                    </DataGrid>
+
+                                </Grid>
+
+                            </ContentControl.Content>
+
+                        </ContentControl>
+                    </ScrollViewer>
+                </StackPanel>
+            </ContentControl>
+            <ScrollViewer Grid.Column="1" BorderThickness="0.1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <ContentControl  Style="{StaticResource panel-info}">
+                <TextBlock Background="Black" TextAlignment="Left" FontSize="15" Name="debug_screen" Foreground="White" FontFamily="consuls">
+
+                </TextBlock>
+            </ContentControl>
+                </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

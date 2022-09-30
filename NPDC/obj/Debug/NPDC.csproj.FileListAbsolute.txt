@@ -1,0 +1,14 @@
+D:\WSN_SIM\ServerApp\NPDC\bin\Debug\NPDC.dll
+D:\WSN_SIM\ServerApp\NPDC\bin\Debug\NPDC.pdb
+D:\WSN_SIM\ServerApp\NPDC\bin\Debug\ns.graph.dll
+D:\WSN_SIM\ServerApp\NPDC\bin\Debug\ServerSide.dll
+D:\WSN_SIM\ServerApp\NPDC\bin\Debug\Newtonsoft.Json.dll
+D:\WSN_SIM\ServerApp\NPDC\bin\Debug\ns.graph.pdb
+D:\WSN_SIM\ServerApp\NPDC\bin\Debug\ServerSide.pdb
+D:\WSN_SIM\Controller\NPDC.dll
+D:\WSN_SIM\Controller\NPDC.pdb
+D:\WSN_SIM\ServerApp\NPDC\obj\Debug\NPDC.dll
+D:\WSN_SIM\ServerApp\NPDC\obj\Debug\NPDC.pdb
+D:\WSN_SIM\ServerApp\NPDC\obj\Debug\NPDC.csprojAssemblyReference.cache
+D:\WSN_SIM\ServerApp\NPDC\obj\Debug\NPDC.csproj.CoreCompileInputs.cache
+D:\WSN_SIM\ServerApp\NPDC\obj\Debug\NPDC.csproj.CopyComplete

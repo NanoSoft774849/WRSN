@@ -1,0 +1,17 @@
+F:\Aisha\Controller\WRSNModuleBase.dll
+F:\Aisha\Controller\WRSNModuleBase.pdb
+F:\Aisha\ServerApp\WRSNModuleBase\obj\Debug\WRSNModuleBase.csprojResolveAssemblyReference.cache
+F:\Aisha\ServerApp\WRSNModuleBase\obj\Debug\WRSNModuleBase.dll
+F:\Aisha\ServerApp\WRSNModuleBase\obj\Debug\WRSNModuleBase.pdb
+F:\WSN_SIM\Controller\WRSNModuleBase.dll
+F:\WSN_SIM\Controller\WRSNModuleBase.pdb
+F:\WSN_SIM\ServerApp\WRSNModuleBase\obj\Debug\WRSNModuleBase.csprojResolveAssemblyReference.cache
+F:\WSN_SIM\ServerApp\WRSNModuleBase\obj\Debug\WRSNModuleBase.dll
+F:\WSN_SIM\ServerApp\WRSNModuleBase\obj\Debug\WRSNModuleBase.pdb
+D:\WSN_SIM\Controller\WRSNModuleBase.dll
+D:\WSN_SIM\Controller\WRSNModuleBase.pdb
+D:\WSN_SIM\ServerApp\WRSNModuleBase\obj\Debug\WRSNModuleBase.dll
+D:\WSN_SIM\ServerApp\WRSNModuleBase\obj\Debug\WRSNModuleBase.pdb
+D:\WSN_SIM\ServerApp\WRSNModuleBase\obj\Debug\WRSNModuleBase.csprojAssemblyReference.cache
+D:\WSN_SIM\ServerApp\WRSNModuleBase\obj\Debug\WRSNModuleBase.csproj.CoreCompileInputs.cache
+D:\WSN_SIM\ServerApp\WRSNModuleBase\obj\Debug\WRSNModuleBase.csproj.CopyComplete

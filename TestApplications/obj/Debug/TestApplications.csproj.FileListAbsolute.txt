@@ -1,0 +1,12 @@
+F:\Aisha\Controller\TestApplications.exe.config
+F:\Aisha\Controller\TestApplications.exe
+F:\Aisha\Controller\TestApplications.pdb
+F:\Aisha\ServerApp\TestApplications\obj\Debug\TestApplications.csprojResolveAssemblyReference.cache
+F:\Aisha\ServerApp\TestApplications\obj\Debug\TestApplications.exe
+F:\Aisha\ServerApp\TestApplications\obj\Debug\TestApplications.pdb
+F:\WSN_SIM\Controller\TestApplications.exe.config
+F:\WSN_SIM\Controller\TestApplications.exe
+F:\WSN_SIM\Controller\TestApplications.pdb
+F:\WSN_SIM\ServerApp\TestApplications\obj\Debug\TestApplications.csprojResolveAssemblyReference.cache
+F:\WSN_SIM\ServerApp\TestApplications\obj\Debug\TestApplications.exe
+F:\WSN_SIM\ServerApp\TestApplications\obj\Debug\TestApplications.pdb

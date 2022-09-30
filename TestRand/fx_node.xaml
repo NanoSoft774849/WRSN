@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="TestRand.fx_node"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100"
+              MouseDown="node_MouseDown"
+          MouseMove="node_MouseMove"
+          MouseUp="node_MouseUp"
+          MouseEnter="node_MouseMove"
+          MouseLeave="node_MouseLeave"
+             >
+    <Grid Name="node"
+         
+          >
+        
+        <Label Name="node_name"> node 1</Label>
+        <Path Name="path" Data="M 0 0.88004999999998 A 14 14 0 1 1 0.00399999933334 0.88004800000014 Z " HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Blue"></Path>
+    </Grid>
+</UserControl>

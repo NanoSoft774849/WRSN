@@ -1,0 +1,5 @@
+F:\Aisha\ServerApp\ns.graph\bin\Release\ns.graph.dll
+F:\Aisha\ServerApp\ns.graph\bin\Release\ns.graph.pdb
+F:\Aisha\ServerApp\ns.graph\obj\Release\ns.graph.dll
+F:\Aisha\ServerApp\ns.graph\obj\Release\ns.graph.pdb
+F:\Aisha\ServerApp\ns.graph\obj\Release\ns.graph.csprojResolveAssemblyReference.cache

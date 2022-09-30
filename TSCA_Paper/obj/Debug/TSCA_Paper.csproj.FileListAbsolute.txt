@@ -1,0 +1,17 @@
+F:\Aisha\Controller\TSCA_Paper.dll
+F:\Aisha\Controller\TSCA_Paper.pdb
+F:\Aisha\ServerApp\TSCA_Paper\obj\Debug\TSCA_Paper.csprojResolveAssemblyReference.cache
+F:\Aisha\ServerApp\TSCA_Paper\obj\Debug\TSCA_Paper.dll
+F:\Aisha\ServerApp\TSCA_Paper\obj\Debug\TSCA_Paper.pdb
+F:\WSN_SIM\Controller\TSCA_Paper.dll
+F:\WSN_SIM\Controller\TSCA_Paper.pdb
+F:\WSN_SIM\ServerApp\TSCA_Paper\obj\Debug\TSCA_Paper.csprojResolveAssemblyReference.cache
+F:\WSN_SIM\ServerApp\TSCA_Paper\obj\Debug\TSCA_Paper.dll
+F:\WSN_SIM\ServerApp\TSCA_Paper\obj\Debug\TSCA_Paper.pdb
+D:\WSN_SIM\Controller\TSCA_Paper.dll
+D:\WSN_SIM\Controller\TSCA_Paper.pdb
+D:\WSN_SIM\ServerApp\TSCA_Paper\obj\Debug\TSCA_Paper.dll
+D:\WSN_SIM\ServerApp\TSCA_Paper\obj\Debug\TSCA_Paper.pdb
+D:\WSN_SIM\ServerApp\TSCA_Paper\obj\Debug\TSCA_Paper.csprojAssemblyReference.cache
+D:\WSN_SIM\ServerApp\TSCA_Paper\obj\Debug\TSCA_Paper.csproj.CoreCompileInputs.cache
+D:\WSN_SIM\ServerApp\TSCA_Paper\obj\Debug\TSCA_Paper.csproj.CopyComplete
