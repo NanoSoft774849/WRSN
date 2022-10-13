@@ -17,3 +17,6 @@ To change the application configuration , go to TestRand.exe.config, use notepad
 
 
 ![ui_buttons](https://user-images.githubusercontent.com/74305654/177843221-ee9a2709-2fd4-47ce-bc32-81ef3c61ea56.png)
+
+
+![image](https://user-images.githubusercontent.com/74305654/195596756-b84fe748-8287-4cc0-92a3-b3e24552c083.png)
