@@ -1,6 +1,6 @@
 ﻿/// don't remove this. this only for NPDC.
-//#define NPDC
-//#define use_sectors
+#define NPDC
+#define use_sectors
 // #define use_layers
 //#define NJNP
 //#define mTs
