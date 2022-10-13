@@ -158,9 +158,9 @@ namespace TestRand
             /// 
             //MyNetwork(100);
             //static_net();
-            string net = "";// create_hex_net(new ns_point(-shifty, 30), layers, comrange);
+            string net = create_hex_net(new ns_point(-shifty, 30), layers, comrange);
 
-            generate_rand_net(100, 50, 2150);
+           // generate_rand_net(100, 50, 2150);
             /// put the content to the latex file.
            this.nano_latex.AppendLatex(net);
 
