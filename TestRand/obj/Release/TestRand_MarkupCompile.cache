@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\Aisha\ServerApp\TestRand\obj\Release\
+D:\WSN_SIM\ServerApp\TestRand\obj\Release\
 TestRand
 none
 false
 TRACE
-F:\Aisha\ServerApp\TestRand\App.xaml
-11151548125
+D:\WSN_SIM\ServerApp\TestRand\App.xaml
+23999490426
 
-6-281717835
-15-148091385
-MainWindow.xaml;
+18368223505
+2380900302
+fx_node.xaml;graph_indicator.xaml;MainWindow.xaml;net_stats_wind.xaml;node_params.xaml;Styles\BaseStyle.xaml;Styles\Bootstrap.xaml;Styles\Button.xaml;Styles\Colors.xaml;Styles\DataGrid.xaml;Styles\Fonts.xaml;Styles\FormControl.xaml;Styles\InputGroup.xaml;Styles\Label.xaml;Styles\ListBox.xaml;Styles\Panel.xaml;Styles\Path.xaml;Styles\ProgressBar.xaml;Styles\Sizes.xaml;Styles\Window.xaml;Wind_net_Stat.xaml;Wind_Node_Config.xaml;Wind_node_params.xaml;
 
 False
 
