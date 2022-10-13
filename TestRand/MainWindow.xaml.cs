@@ -151,14 +151,16 @@ namespace TestRand
             this.latex_out_file = string.Format("{0}/{1}", dir_name, this.latex_out_file);
             this.nano_latex = new ns_latex(this.latex_out_file, "standalone", "border=0.1cm");
             this.nano_latex.AddPackage("tikz").AppendLatex("\\usetikzlibrary{positioning}\n").Begin("document").Begin("tikzpicture");
-            
-           // File.WriteAllText(this.latex_out_file, "");
+
+            // File.WriteAllText(this.latex_out_file, "");
             /// Create Network 
             /// return latex content.
             /// 
             //MyNetwork(100);
             //static_net();
-            string net = create_hex_net(new ns_point(-shifty, 30), layers, comrange);
+            string net = "";// create_hex_net(new ns_point(-shifty, 30), layers, comrange);
+
+            generate_rand_net(100, 50, 2150);
             /// put the content to the latex file.
            this.nano_latex.AppendLatex(net);
 
@@ -202,7 +204,61 @@ namespace TestRand
             
         }
 
-        
+        private void generate_rand_net(int N, double min_r, double max_r)
+        {
+            int n_iterations = 100000;
+            int i = 0, n = 0;
+            List<ns_point> list = new List<ns_point>();
+
+            int r_max_ = 1000;
+            int r_min_ = 200;
+
+            Random r = new Random(DateTime.Now.Millisecond);
+
+            double x = 0, y = 0;
+
+            while (true)
+
+            {
+                x = r.Next(r_min_, r_max_);
+                y = r.Next(r_min_, r_max_);
+                ns_point p = new ns_point(x, y);
+                if( i == 0)
+                {
+                    list.Add(p);
+                    i++;
+                    n++;
+                    continue;
+                }
+                if (is_point_in(list, p, min_r, max_r) )
+                {
+                    list.Add(p);
+                    n++;
+                }
+                if( i>= n_iterations || n >= N)
+                {
+                    break;
+                }
+                i++;
+            }
+
+            foreach( var px in list)
+            {
+                add_sensor(px);
+            }
+        }
+        private bool is_point_in(List<ns_point> list, ns_point p, double min_r , double mxa_r)
+        {
+            bool is_in = true;
+
+            foreach( var px in list)
+            {
+                double d = px.edistance(p);
+                is_in &= (d >= min_r && d <= mxa_r);
+            }
+
+            return is_in;
+        }
         private void static_net(int N = 100)
         {
            // double x = 100;
