@@ -1,6 +1,6 @@
 # WRSN Simulation Application
 
-This project was created by Abdulbary, email:abdulbaryhowbani@gmail.com
+  email:abdulbaryhowbani@gmail.com
 * This application is for Wireless Reachargeable Sensor Networks.
 
 $$ No description has been posted, yet in the near future, there will be a detail description about how to use it.
